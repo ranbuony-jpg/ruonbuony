@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#contact -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0d12">
+    <meta name="description" content="The portfolio of Ruon Buony, a Computer Science student and aspiring developer at Gambella University.">
+    <title>Ruon Buony | Developer Portfolio</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0b0d12;
+            --surface: #121720;
+            --card: #171e29;
+            --line: #28313d;
+            --text: #f4f6f1;
+            --muted: #a1a8b5;
+            --accent: #c5f467;
+            --content: 1120px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .container { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+
+        .site-header {
+            position: sticky;
+            z-index: 10;
+            top: 0;
+            background: rgb(11 13 18 / 88%);
+            border-bottom: 1px solid rgb(255 255 255 / 6%);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo { font-size: 1.45rem; font-weight: 800; letter-spacing: -.06em; text-decoration: none; }
+        .logo span, .accent { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: var(--muted); font-size: .92rem; text-decoration: none; transition: color .2s ease; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+        .menu-toggle { display: none; }
+
+        .hero {
+            min-height: 690px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+            align-items: center;
+            gap: clamp(48px, 8vw, 110px);
+            padding-block: 84px 104px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            font-size: .76rem;
+            font-weight: 750;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before { content: ""; width: 25px; height: 1px; background: currentColor; }
+
+        h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(3.35rem, 7vw, 5.7rem);
+            line-height: .98;
+            letter-spacing: -.075em;
+        }
+
+        .hero h2 { margin: 22px 0 14px; font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 550; }
+        .hero-copy { max-width: 580px; color: var(--muted); font-size: 1.05rem; line-height: 1.85; }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            background: var(--accent);
+            color: #10130b;
+            font-size: .92rem;
+            font-weight: 750;
+            text-decoration: none;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .button:hover { transform: translateY(-2px); background: #d3ff7a; }
+        .button.secondary { background: transparent; color: var(--text); }
+        .button.secondary:hover { color: var(--accent); }
+
+        .portrait-wrap { position: relative; width: min(100%, 390px); justify-self: center; }
+        .portrait-wrap::before {
+            position: absolute;
+            z-index: -1;
+            inset: 20px -20px -20px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 18px;
+            content: "";
+        }
+
+        .portrait {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border: 1px solid #343d46;
+            border-radius: 18px;
+            background: var(--card);
+            object-fit: cover;
+            object-position: center 27%;
+            box-shadow: 0 28px 80px rgb(0 0 0 / 38%);
+        }
+
+        .portrait-note {
+            position: absolute;
+            right: -15px;
+            bottom: 25px;
+            padding: 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #121720;
+            color: var(--muted);
+            font-size: .8rem;
+        }
+
+        .portrait-note strong { color: var(--accent); }
+        section { padding-block: 88px; }
+        .section-alt { background: var(--surface); }
+        .section-heading { max-width: 620px; margin: 0 auto 42px; text-align: center; }
+        .section-heading h2 { margin: 10px 0 12px; font-size: clamp(2rem, 4vw, 2.7rem); letter-spacing: -.05em; }
+        .section-heading p, .about-copy p { color: var(--muted); }
+
+        .about-card {
+            max-width: 800px;
+            margin-inline: auto;
+            padding: clamp(26px, 5vw, 48px);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--card);
+            text-align: center;
+        }
+
+        .about-card h3 { margin: 0 0 14px; font-size: 1.45rem; }
+        .about-copy p { margin: 0; line-height: 1.9; }
+
+        .skills-grid, .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .skill-card, .project-card {
+            padding: 26px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--card);
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .skill-card:hover, .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .skill-card h3, .project-card h3 { margin: 0 0 9px; color: var(--accent); font-size: 1.08rem; }
+        .skill-card p, .project-card p { margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.75; }
+        .project-card { min-height: 225px; display: flex; flex-direction: column; }
+        .project-card p { margin-bottom: 20px; }
+        .project-card .tech { margin-top: auto; color: var(--accent); font-size: .76rem; letter-spacing: .04em; }
+
+        .contact-box { max-width: 760px; margin-inline: auto; text-align: center; }
+        .contact-box p { margin: 0 auto 24px; color: var(--muted); }
+        footer { padding: 25px 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; text-align: center; }
+        footer p { margin: 3px; }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+        @media (max-width: 800px) {
+            .hero { min-height: auto; grid-template-columns: 1fr; gap: 55px; padding-block: 75px 90px; }
+            .hero-content { text-align: center; }
+            .hero-content .eyebrow { justify-content: center; }
+            .hero-copy { margin-inline: auto; }
+            .actions { justify-content: center; }
+            .portrait-wrap { width: min(78%, 360px); }
+            .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .container { width: min(var(--content), calc(100% - 36px)); }
+            .nav { min-height: 68px; }
+            .menu-toggle {
+                display: inline-grid;
+                width: 42px;
+                height: 42px;
+                place-items: center;
+                border: 1px solid var(--line);
+                border-radius: 6px;
+                background: transparent;
+                color: var(--text);
+                font-size: 1.35rem;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 67px;
+                right: 0;
+                left: 0;
+                display: none;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 18px 18px;
+                border-bottom: 1px solid var(--line);
+                background: var(--bg);
+            }
+
+            .nav-links.open { display: flex; flex-direction: column; }
+            .nav-links a { display: block; padding: 12px 0; }
+            .hero { padding-block: 62px 76px; }
+            .hero h1 { font-size: clamp(3.1rem, 14vw, 4.5rem); }
+            section { padding-block: 68px; }
+            .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+            .skill-card, .project-card { padding: 23px; }
+            .portrait-note { right: -9px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="logo" href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#home" aria-label="Ruon Buony home">RB<span>.</span></a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#home">Home</a></li>
+                <li><a href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#about">About</a></li>
+                <li><a href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#skills">Skills</a></li>
+                <li><a href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#projects">Projects</a></li>
+                <li><a href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">Computer Science Student</p>
+                <h1>Ruon <span class="accent">Buony</span></h1>
+                <h2>Curious mind. <span class="accent">Builder's mindset.</span></h2>
+                <p class="hero-copy">
+                    I study Computer Science at Gambella University in Ethiopia.
+                    I love programming, technology, and creating digital solutions
+                    that solve real-world problems.
+                </p>
+                <div class="actions">
+                    <a class="button" href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#projects">Explore my projects <span aria-hidden="true">&nbsp;↗</span></a>
+                    <a class="button secondary" href="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/index.html#contact">Get in touch</a>
+                </div>
+            </div>
+            <div class="portrait-wrap">
+                <img class="portrait" src="http://browser-preview-local.localhost/3f55eb0a-a1c8-4beb-b49e-32da714b39d4/ruon.jpg" alt="Portrait of Ruon Buony">
+            </div>
+        </section>
+
+        <section class="section-alt" id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">A little about me</p>
+                    <h2>Learning by building</h2>
+                </div>
+                <div class="about-card about-copy">
+                    <h3>3rd Year Computer Science Student at Gambella University</h3>
+                    <p>
+                        My journey began with curiosity. Growing up, I was fascinated
+                        by technology and always wondered how it could solve the
+                        problems we encounter in our daily lives. I saw challenges
+                        that could have been easier with the right technology,
+                        opportunities limited by a lack of innovation, and problems
+                        that inspired me to think beyond what already existed.
+                    </p>
+                    <p>
+                        That is where my passion began. I chose Computer Science
+                        because I believe technology is more than computers and
+                        programming. It is about finding better ways to do things,
+                        solving real-world problems, creating opportunities, and
+                        building a better future.
+                    </p>
+                    <p>
+                        I am still learning, still exploring, and still growing, but
+                        one thing remains certain: I want my knowledge to become a
+                        solution to someone's problem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">What I'm learning</p>
+                    <h2>My skills</h2>
+                    <p>Tools and technologies I'm exploring as I grow as a developer.</p>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card"><h3>HTML</h3><p>Building clear, accessible website structures.</p></article>
+                    <article class="skill-card"><h3>CSS</h3><p>Designing responsive and engaging web experiences.</p></article>
+                    <article class="skill-card"><h3>JavaScript</h3><p>Adding useful interactions to websites.</p></article>
+                    <article class="skill-card"><h3>Java</h3><p>Learning object-oriented programming.</p></article>
+                    <article class="skill-card"><h3>C++</h3><p>Developing programming logic and problem-solving skills.</p></article>
+                    <article class="skill-card"><h3>Git &amp; GitHub</h3><p>Learning version control and collaboration.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-alt" id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Things I'm working on</p>
+                    <h2>My projects</h2>
+                    <p>Ideas I'm turning into practical tools and learning experiences.</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <h3>Naath Translator</h3>
+                        <p>A translation website designed to help people translate between English and Nuer (Naath), with plans for text and voice features.</p>
+                        <span class="tech">HTML · CSS · JavaScript</span>
+                    </article>
+                    <article class="project-card">
+                        <h3>To-Do List Application</h3>
+                        <p>A simple task management app to help people organize their daily activities.</p>
+                        <span class="tech">HTML · CSS · JavaScript</span>
+                    </article>
+                    <article class="project-card">
+                        <h3>Personal Portfolio</h3>
+                        <p>This website: a place to introduce myself, share what I'm learning, and showcase my projects.</p>
+                        <span class="tech">HTML · CSS · JavaScript</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container contact-box">
+                <p class="eyebrow">Let's connect</p>
+                <h2 class="section-heading">Have an idea or project?</h2>
+                <p>Let's connect and build something meaningful together.</p>
+                <a class="button" href="mailto:ranbuony@gmail.com">Send me an email <span aria-hidden="true">&nbsp;↗</span></a>
+                <p><a href="tel:+251904711820">Call me: +251 904 711 820</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Ruon Buony. All rights reserved.</p>
+        <p>Designed with passion by Ruon Buony.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+            menuToggle.textContent = isOpen ? "×" : "☰";
+        });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+                menuToggle.textContent = "☰";
+            });
+        });
+    </script>
+
+
+</body></html>
